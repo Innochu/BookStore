@@ -9,7 +9,7 @@ namespace BookParadise.Persistence.Repository.Interface
     public interface IUnitOfWork
     {
         IOrderRepository OrderRepo { get; }
-        IAuthRepository AuthRepo { get; }
+        IAuthenticationRepository AuthRepo { get; }
         IBookRepository BookRepo { get; }
         Task SaveChangesAsync();
     }

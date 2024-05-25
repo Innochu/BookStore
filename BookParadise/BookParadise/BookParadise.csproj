@@ -24,4 +24,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BookParadise.Application\BookParadise.Application.csproj" />
+    <ProjectReference Include="..\BookParadise.Domain\BookParadise.Domain.csproj" />
+    <ProjectReference Include="..\BookParadise.Persistence\BookParadise.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookParadise.Domain\BookParadise.Domain.csproj" />
-    <ProjectReference Include="..\BookParadise\BookParadise.csproj" />
   </ItemGroup>
 
 </Project>

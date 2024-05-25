@@ -5,10 +5,10 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly BookParadiseDb _bookParadiseDb;
     private readonly IBookRepository _bookRepo;
-    private readonly IAuthRepository _authRepo;
+    private readonly IAuthenticationRepository _authRepo;
     private readonly IOrderRepository _orderRepo;
 
-    public UnitOfWork(IBookRepository bookRepo, IAuthRepository authRepo, IOrderRepository orderRepo, BookParadiseDb bookParadiseDb)
+    public UnitOfWork(IBookRepository bookRepo, IAuthenticationRepository authRepo, IOrderRepository orderRepo, BookParadiseDb bookParadiseDb)
     {
         _bookRepo = bookRepo;
         _authRepo = authRepo;
@@ -17,7 +17,7 @@ public class UnitOfWork : IUnitOfWork
     }
 
     public IBookRepository BookRepo => _bookRepo;
-    public IAuthRepository AuthRepo => _authRepo;
+    public IAuthenticationRepository AuthRepo => _authRepo;
     public IOrderRepository OrderRepo => _orderRepo;
 
     public async Task SaveChangesAsync()
