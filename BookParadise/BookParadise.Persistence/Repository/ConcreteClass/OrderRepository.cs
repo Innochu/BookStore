@@ -1,11 +1,7 @@
 ﻿using BookParadise.Domain.Models;
 using BookParadise.Persistence.DBContextFolder;
 using BookParadise.Persistence.Repository.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookParadise.Persistence.Repository.ConcreteClass
 {
@@ -25,9 +21,9 @@ namespace BookParadise.Persistence.Repository.ConcreteClass
             return order;
         }
 
-        //public async Task<Order> GetOrderByIdAsync(string orderId)
-        //{
-        //    return await _dbContext.Orders.FirstOrDefaultAsync(o => o.Id == orderId);
-        //}
+        public async Task<Order> GetOrderByIdAsync(string orderId)
+        {
+            return await _dbContext.Orders.FirstOrDefaultAsync(o => o.Id == orderId);
+        }
     }
 }

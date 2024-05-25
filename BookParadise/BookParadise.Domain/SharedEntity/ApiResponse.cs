@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookParadise.Domain.SharedEntity
+﻿namespace HeightsBookHub.Domain.Entities.SharedEntities
 {
     public class ApiResponse<T>
     {
@@ -14,27 +8,63 @@ namespace BookParadise.Domain.SharedEntity
         public T Data { get; set; }
         public int StatusCode { get; set; }
 
-        public ApiResponse(bool succeeded, string? message, int statusCode, T data, List<string> errors)
+        public ApiResponse(bool isSucceeded, string message, List<string> errors, T data, int statusCode)
         {
-            Succeeded = succeeded;
-            Message = message ?? "";
-            StatusCode = statusCode;
+            Succeeded = isSucceeded;
+            Message = message;
+            Errors = errors;
             Data = data;
-            Errors = errors ?? new List<string>();
+            StatusCode = statusCode;
+        }
+        public ApiResponse()
+        {
+
         }
 
+        public ApiResponse(bool isSucceeded, string message, int statusCode)
+        {
+            Succeeded = isSucceeded;
+            Message = message;
+            StatusCode = statusCode;
+        }
 
+        public ApiResponse(T data, string message = null)
+        {
+            Succeeded = true;
+            Message = message;
+            Data = data;
+        }
+
+        public ApiResponse(bool isSucceeded, List<string> errors, T data)
+        {
+            Succeeded = isSucceeded;
+            Errors = errors;
+            Data = data;
+        }
+
+        public ApiResponse(bool isSucceeded, string message, List<string> errors, int statusCode)
+        {
+            Succeeded = isSucceeded;
+            Message = message;
+            Errors = errors;
+            StatusCode = statusCode;
+        }
 
         public static ApiResponse<T> Success(T data, string message, int statusCode)
         {
-            return new ApiResponse<T>(true, message, statusCode, data, new List<string>());
+            return new ApiResponse<T>(true, message, new List<string>(), data, statusCode);
+        }
+
+        public static ApiResponse<T> Failed(List<string> errors)
+        {
+            return new ApiResponse<T>(false, errors, default);
         }
 
 
-
-        public static ApiResponse<T> Failed(string message, int statusCode, List<string> errors)
+        public static ApiResponse<T> Failed(bool isSucceeded, string message, int statusCode, List<string> errors)
         {
-            return new ApiResponse<T>(false, message, statusCode, default!, errors);
-        }//null forgiving operator (!)
+            return new ApiResponse<T>(isSucceeded, message, errors, statusCode);
+        }
+
     }
 }
