@@ -1,0 +1,17 @@
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\bin\Debug\net7.0\BookParadise.Persistence.deps.json
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\bin\Debug\net7.0\BookParadise.Persistence.runtimeconfig.json
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\bin\Debug\net7.0\BookParadise.Persistence.dll
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\bin\Debug\net7.0\BookParadise.Persistence.pdb
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\bin\Debug\net7.0\BookParadise.Domain.dll
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\bin\Debug\net7.0\BookParadise.Domain.pdb
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.csproj.AssemblyReference.cache
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.AssemblyInfoInputs.cache
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.AssemblyInfo.cs
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.csproj.CopyComplete
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.dll
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\refint\BookParadise.Persistence.dll
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.pdb
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\BookParadise.Persistence.genruntimeconfig.cache
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise.Persistence\obj\Debug\net7.0\ref\BookParadise.Persistence.dll

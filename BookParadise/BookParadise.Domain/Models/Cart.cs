@@ -16,6 +16,6 @@ namespace BookParadise.Domain.Models
         public Book Book { get; set; }
         [ForeignKey("User")]
         public string UserId { get; set; } = Guid.NewGuid().ToString();
-        public User User { get; set; }
+        public User User { get; set; } 
     }
 }

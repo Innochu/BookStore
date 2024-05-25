@@ -13,10 +13,10 @@ namespace BookParadise.Domain.Models
     {
         public int Quantity { get; set; }
         [ForeignKey("BookId")]
-        public string BookId { get; set; }
+        public string BookId { get; set; } = string.Empty;
 
         [ForeignKey("UserId")]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty.ToString();
         public OrderStatus OrderStatus { get; set; }
     }
 }

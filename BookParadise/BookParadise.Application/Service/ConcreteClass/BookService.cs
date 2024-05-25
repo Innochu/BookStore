@@ -4,16 +4,10 @@ using BookParadise.Common;
 using BookParadise.Domain.Models;
 using BookParadise.Persistence.Repository.Interface;
 using HeightsBookHub.Domain.Entities.SharedEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static BookParadise.Application.Service.ConcreteClass.BookService;
 
 namespace BookParadise.Application.Service.ConcreteClass
 {
-        public class BookService : IBookService
+    public class BookService : IBookService
     {
             
         private readonly IUnitOfWork _unitOfWork;
