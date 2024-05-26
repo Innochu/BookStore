@@ -13,9 +13,11 @@
           "BookParadise.Persistence": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.11",
+          "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.19.4",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
@@ -57,43 +59,11 @@
           }
         }
       },
-      "EntityFramework/6.1.0": {
-        "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.1.30225.0"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.1.30225.0"
-          }
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
-          }
-        }
-      },
-      "Microsoft.AspNet.Identity.Core/2.2.4": {
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.2.4.50621"
-          }
-        }
-      },
-      "Microsoft.AspNet.Identity.EntityFramework/2.2.4": {
-        "dependencies": {
-          "EntityFramework": "6.1.0",
-          "Microsoft.AspNet.Identity.Core": "2.2.4"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.2.4.50621"
           }
         }
       },
@@ -887,7 +857,9 @@
           "BookParadise.Persistence": "1.0.0",
           "Microsoft.AspNetCore.Identity": "2.1.39",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
+          "Microsoft.EntityFrameworkCore": "7.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0"
         },
         "runtime": {
           "BookParadise.Application.dll": {}
@@ -896,7 +868,9 @@
       "BookParadise.Common/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
+          "Microsoft.EntityFrameworkCore": "7.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0"
         },
         "runtime": {
           "BookParadise.Common.dll": {}
@@ -904,9 +878,10 @@
       },
       "BookParadise.Domain/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNet.Identity.EntityFramework": "2.2.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
+          "Microsoft.EntityFrameworkCore": "7.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0"
         },
         "runtime": {
           "BookParadise.Domain.dll": {}
@@ -916,7 +891,9 @@
         "dependencies": {
           "BookParadise.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
+          "Microsoft.EntityFrameworkCore": "7.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0"
         },
         "runtime": {
           "BookParadise.Persistence.dll": {}
@@ -944,33 +921,12 @@
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
     },
-    "EntityFramework/6.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-u/M0OEfqxTUsL5BwzD66eBGm278/ozqdLK3JvMO6QwUxxc+z7ZUkTYm4suDhWRqzkc6mOhvXDQY5dZUwbldxyQ==",
-      "path": "entityframework/6.1.0",
-      "hashPath": "entityframework.6.1.0.nupkg.sha512"
-    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
-    },
-    "Microsoft.AspNet.Identity.Core/2.2.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-s3u/o3iG5h0z7Ggukwo4soPwogD56ZrYbolGxTfw41zkuG6jAXUJT/V3EThqHJXGuCNvWSdSnnwAhPfT9Sn36g==",
-      "path": "microsoft.aspnet.identity.core/2.2.4",
-      "hashPath": "microsoft.aspnet.identity.core.2.2.4.nupkg.sha512"
-    },
-    "Microsoft.AspNet.Identity.EntityFramework/2.2.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ay5FMSwNF0tb9KiC4l4aqm7D1E6Da9nU3euI/X0UD1SuumJX7OkZ9LtZjU9xT3xmou3XLXO8DDcgrW6udSQk6Q==",
-      "path": "microsoft.aspnet.identity.entityframework/2.2.4",
-      "hashPath": "microsoft.aspnet.identity.entityframework.2.2.4.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.1.1": {
       "type": "package",

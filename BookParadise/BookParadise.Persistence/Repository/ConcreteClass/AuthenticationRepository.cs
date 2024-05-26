@@ -19,7 +19,7 @@ namespace BookParadise.Persistence.Repository.ConcreteClass
             var result = await _userManager.CreateAsync(user, password);
             if (result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, "RegularUser");
+                await _userManager.AddToRoleAsync(user, "User");
                 return true;
             }
             return false;

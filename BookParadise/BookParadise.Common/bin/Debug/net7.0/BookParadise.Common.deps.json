@@ -9,9 +9,11 @@
       "BookParadise.Common/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
-          "Microsoft.EntityFrameworkCore.Tools": "7.0.0"
+          "Microsoft.EntityFrameworkCore.Tools": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0"
         },
         "runtime": {
           "BookParadise.Common.dll": {}

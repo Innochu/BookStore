@@ -1,10 +1,5 @@
 ﻿using BookParadise.Domain.Enums;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookParadise.Application.Dtos
 {
@@ -13,10 +8,10 @@ namespace BookParadise.Application.Dtos
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public int Quantity { get; set; }
         [ForeignKey("BookId")]
-        public string BookId { get; set; }
+        public string BookId { get; set; } = string.Empty;
 
         [ForeignKey("UserId")]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
         public OrderStatus OrderStatus { get; set; }
     }
 }
