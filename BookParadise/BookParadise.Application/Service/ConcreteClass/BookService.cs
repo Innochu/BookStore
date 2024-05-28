@@ -18,48 +18,44 @@ namespace BookParadise.Application.Service.ConcreteClass
             _unitOfWork = unitOfWork;
         }
 
-            public async Task<ApiResponse<PageResult<IEnumerable<BookResponseDto>>>> GetAllBooksAsync(int page, int perPage)
+        public async Task<ApiResponse<IEnumerable<BookResponseDto>>> GetAllBooksAsync()
+        {
+            try
             {
-                try
+                var allBooks = await _unitOfWork.BookRepo.GetAllBooksAsync();
+
+                // Check if any books retrieved (optional)
+                if (!allBooks.Any())
                 {
-                    var allBooks = await _unitOfWork.BookRepo.GetAllBooksAsync();
-                    var pagedBooks = await Pagination<Book>.GetPager(allBooks, perPage, page, b => b.Title, b => b.Id.ToString());
-
-                    var bookDtoList = pagedBooks.Data.Select(book => new BookResponseDto
-                    {
-                        Id = book.Id,
-                        Title = book.Title,
-                        Description = book.Description,
-                        Content = book.Content,
-                        Author = book.Author,
-                        ISBN = book.ISBN,
-                        Publisher = book.Publisher,
-                        PublishedDate = book.PublishedDate,
-                        TotalPageCount = book.TotalPageCount,
-                        StockQuantity = book.StockQuantity,
-                        CreatedAt = book.CreatedAt,
-                        UpdatedAt = book.UpdatedAt
-                    }).ToList();
-
-                    var pagedBookDto = new PageResult<IEnumerable<BookResponseDto>>
-                    {
-                        Data = bookDtoList,
-                        TotalPageCount = pagedBooks.TotalPageCount,
-                        CurrentPage = pagedBooks.CurrentPage,
-                        PerPage = pagedBooks.PerPage,
-                        TotalCount = pagedBooks.TotalCount
-                    };
-
-                    return ApiResponse<PageResult<IEnumerable<BookResponseDto>>>.Success(pagedBookDto, "Books retrieved successfully", 200);
+                    return ApiResponse<IEnumerable<BookResponseDto>>.Success(new List<BookResponseDto>(), "No books found", 200);
                 }
-                catch (Exception ex)
+
+                var bookDtoList = allBooks.Select(book => new BookResponseDto
                 {
-                    return ApiResponse<PageResult<IEnumerable<BookResponseDto>>>.Failed(false, ex.Message, 500, new List<string> { ex.StackTrace });
-                }
+                    Id = book.Id,
+                    Title = book.Title,
+                    Description = book.Description,
+                    Content = book.Content, // Consider security implications of including full content
+                    Author = book.Author,
+                    ISBN = book.ISBN,
+                    Publisher = book.Publisher,
+                    PublishedDate = book.PublishedDate,
+                    TotalPageCount = book.TotalPageCount,
+                    StockQuantity = book.StockQuantity,
+                    CreatedAt = book.CreatedAt,
+                    UpdatedAt = book.UpdatedAt
+                }).ToList();
+
+                return ApiResponse<IEnumerable<BookResponseDto>>.Success(bookDtoList, "Books retrieved successfully", 200);
             }
+            catch (Exception ex)
+            {
+                return ApiResponse<IEnumerable<BookResponseDto>>.Failed(false, ex.Message, 500, new List<string> { ex.StackTrace });
+            }
+        }
 
 
-            public async Task<ApiResponse<BookResponseDto>> GetBookByIdAsync(string bookId)
+        public async Task<ApiResponse<BookResponseDto>> GetBookByIdAsync(string bookId)
             {
                 try
                 {

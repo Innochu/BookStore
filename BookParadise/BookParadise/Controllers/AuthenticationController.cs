@@ -10,9 +10,14 @@ namespace BookParadise.Controllers
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthenticationService _authenticationService;
-        public AuthenticationController(IAuthenticationService authenticationService)
+        private readonly IRabbitMQService _rabbitMQService;
+        private readonly IConfiguration _configuration;
+
+        public AuthenticationController(IAuthenticationService authenticationService, IRabbitMQService rabbitMQService, IConfiguration configuration)
         {
             _authenticationService = authenticationService;
+            _rabbitMQService = rabbitMQService;
+            _configuration = configuration;
         }
 
         [HttpPost("Register")]
@@ -22,6 +27,8 @@ namespace BookParadise.Controllers
             {
                 return BadRequest(ModelState);
             }
+            //string queueName = _configuration.GetValue<string>("TopicAndQueueNames:RegisterUserQueue");
+            //_rabbitMQService.SendMessage(userRegistrationDTO.Email, queueName);
             return Ok(await _authenticationService.RegisterAsync(userRegistrationDTO));
         }
     }

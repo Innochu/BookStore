@@ -83,3 +83,5 @@ C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise\obj\Debug\
 C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise\obj\Debug\net7.0\BookParadise.pdb
 C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise\obj\Debug\net7.0\BookParadise.genruntimeconfig.cache
 C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise\obj\Debug\net7.0\ref\BookParadise.dll
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Decagon\OneDrive\Desktop\BookStore\BookParadise\BookParadise\bin\Debug\net7.0\RabbitMQ.Client.dll

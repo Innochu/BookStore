@@ -18,6 +18,6 @@ namespace BookParadise.Domain.Models
         public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
         public int TotalPageCount { get; set; }
         public int StockQuantity { get; set; }
-        public ICollection<Cart> Carts { get; set; } = new List<Cart>();    
+        public ICollection<Cart> Carts { get; set; } = new List<Cart>();        
     }
 }

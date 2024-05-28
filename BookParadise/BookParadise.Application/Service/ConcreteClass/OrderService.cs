@@ -14,10 +14,12 @@ namespace BookParadise.Application.Service.ConcreteClass
     public class OrderService : IOrderService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IRabbitMQService _rabbitMQService;
 
-        public OrderService(IUnitOfWork unitOfWork)
+        public OrderService(IUnitOfWork unitOfWork, IRabbitMQService rabbitMQService)
         {
             _unitOfWork = unitOfWork;
+            _rabbitMQService = rabbitMQService;
         }
         public async Task<ApiResponse<OrderResponseDto>> PlaceOrderAsync(OrderRequestDTO orderDTO)
         {
@@ -41,7 +43,7 @@ namespace BookParadise.Application.Service.ConcreteClass
                     Quantity = placedOrder.Quantity,
                     OrderStatus = placedOrder.OrderStatus,
                 };
-              //  _rabbitMQService.SendMessage("InventoryQueue", $"OrderProcessed: {placedOrder.Id}");
+                _rabbitMQService.SendMessage("InventoryQueue", $"OrderProcessed: {placedOrder.Id}");
 
                 return ApiResponse<OrderResponseDto>.Success(placedOrderDTO, "Order placed successfully", 200);
             }

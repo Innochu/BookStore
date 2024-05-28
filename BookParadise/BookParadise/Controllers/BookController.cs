@@ -15,9 +15,9 @@ namespace BookParadise.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAllBooks([FromQuery] int page, [FromQuery] int perPage)
+        public async Task<ActionResult> GetAllBooks()
         {
-            var result = await _bookService.GetAllBooksAsync(page, perPage);
+            var result = await _bookService.GetAllBooksAsync();
             return Ok(result);
         }
 
