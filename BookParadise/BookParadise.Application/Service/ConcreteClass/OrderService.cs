@@ -3,11 +3,6 @@ using BookParadise.Application.Service.Interface;
 using BookParadise.Domain.Models;
 using BookParadise.Persistence.Repository.Interface;
 using HeightsBookHub.Domain.Entities.SharedEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookParadise.Application.Service.ConcreteClass
 {
@@ -15,11 +10,13 @@ namespace BookParadise.Application.Service.ConcreteClass
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRabbitMQService _rabbitMQService;
+        private readonly IIInventorymgt _iInventorymgt;
 
-        public OrderService(IUnitOfWork unitOfWork, IRabbitMQService rabbitMQService)
+        public OrderService(IUnitOfWork unitOfWork, IRabbitMQService rabbitMQService, IIInventorymgt iInventorymgt)
         {
             _unitOfWork = unitOfWork;
             _rabbitMQService = rabbitMQService;
+            _iInventorymgt = iInventorymgt;
         }
         public async Task<ApiResponse<OrderResponseDto>> PlaceOrderAsync(OrderRequestDTO orderDTO)
         {
@@ -30,20 +27,22 @@ namespace BookParadise.Application.Service.ConcreteClass
                     UserId = orderDTO.UserId,
                     BookId = orderDTO.BookId,
                     Quantity = orderDTO.Quantity,
-                    OrderStatus = orderDTO.OrderStatus,
+                    OrderStatus = orderDTO.OrderStatus, 
                 };
 
                 var placedOrder = await _unitOfWork.OrderRepo.PlaceOrderAsync(order);
-
+               
                 var placedOrderDTO = new OrderResponseDto
                 {
                     Id = placedOrder.Id,
-                    UserId = placedOrder.UserId,
+                    UserId = placedOrder.UserId, 
                     BookId = placedOrder.BookId,
                     Quantity = placedOrder.Quantity,
                     OrderStatus = placedOrder.OrderStatus,
                 };
-                _rabbitMQService.SendMessage("InventoryQueue", $"OrderProcessed: {placedOrder.Id}");
+                _rabbitMQService.SendMessage("orders", $"OrderProcessed: {placedOrder.Id}");
+                  _rabbitMQService.ReceiveMessage("orders",messageHandler);
+               await _iInventorymgt.UpdateInventoryLevelAsync(placedOrder.Id);
 
                 return ApiResponse<OrderResponseDto>.Success(placedOrderDTO, "Order placed successfully", 200);
             }
@@ -52,7 +51,11 @@ namespace BookParadise.Application.Service.ConcreteClass
                 return ApiResponse<OrderResponseDto>.Failed(false, ex.Message, 500, new List<string> { ex.StackTrace });
             }
         }
+        private void messageHandler(string message)
+        {
+            Console.WriteLine($"Received message: {message}");
 
+        }
         public async Task<ApiResponse<OrderResponseDto>> GetOrderByIdAsync(string orderId)
         {
             try

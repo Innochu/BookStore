@@ -7,6 +7,7 @@
         public List<string> Errors { get; set; }
         public T Data { get; set; }
         public int StatusCode { get; set; }
+        public bool IsSuccess { get; set; }
 
         public ApiResponse(bool isSucceeded, string message, List<string> errors, T data, int statusCode)
         {
@@ -51,7 +52,7 @@
         }
 
         public static ApiResponse<T> Success(T data, string message, int statusCode)
-        {
+            {
             return new ApiResponse<T>(true, message, new List<string>(), data, statusCode);
         }
 

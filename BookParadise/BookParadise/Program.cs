@@ -28,8 +28,9 @@ builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericReposi
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
-builder.Services.AddScoped<IRabbitMQService, RabbitMQService>();
-//builder.Services.AddScoped<InventoryManagementService>();
+builder.Services.AddScoped<IRabbitMQService, RabbitMQSenderService>();
+builder.Services.AddScoped<IIInventorymgt, Inventorymgt>();
+builder.Services.AddScoped<RabbitMQBackgroundService>();
 
 // API features
 builder.Services.AddControllers();

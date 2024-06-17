@@ -8,7 +8,10 @@ public class UnitOfWork : IUnitOfWork
     private readonly IAuthenticationRepository _authRepo;
     private readonly IOrderRepository _orderRepo;
 
-    public UnitOfWork(IBookRepository bookRepo, IAuthenticationRepository authRepo, IOrderRepository orderRepo, BookParadiseDb bookParadiseDb)
+    public UnitOfWork(IBookRepository bookRepo,
+                        IAuthenticationRepository authRepo, 
+                        IOrderRepository orderRepo,
+                        BookParadiseDb bookParadiseDb)
     {
         _bookRepo = bookRepo;
         _authRepo = authRepo;

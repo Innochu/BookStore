@@ -5,13 +5,13 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookParadise", "BookParadise\BookParadise.csproj", "{F9014639-08CE-4FFB-B58C-03B986E899F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookParadise.Domain", "BookParadise.Domain\BookParadise.Domain.csproj", "{F77929E2-9C8A-4E00-80CD-D675A7C7F769}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookParadise.Domain", "BookParadise.Domain\BookParadise.Domain.csproj", "{F77929E2-9C8A-4E00-80CD-D675A7C7F769}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookParadise.Persistence", "BookParadise.Persistence\BookParadise.Persistence.csproj", "{B41C7455-9D04-4A1F-86BF-8BB7A3B7B653}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookParadise.Persistence", "BookParadise.Persistence\BookParadise.Persistence.csproj", "{B41C7455-9D04-4A1F-86BF-8BB7A3B7B653}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookParadise.Common", "BookParadise.Common\BookParadise.Common.csproj", "{F4AF73A2-31BD-40F2-B1D7-8A08A9C4CF3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookParadise.Common", "BookParadise.Common\BookParadise.Common.csproj", "{F4AF73A2-31BD-40F2-B1D7-8A08A9C4CF3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookParadise.Application", "BookParadise.Application\BookParadise.Application.csproj", "{655B2AF5-3F2F-4930-820D-544648DC0C75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookParadise.Application", "BookParadise.Application\BookParadise.Application.csproj", "{655B2AF5-3F2F-4930-820D-544648DC0C75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

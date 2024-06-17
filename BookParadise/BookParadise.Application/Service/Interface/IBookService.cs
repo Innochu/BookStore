@@ -6,7 +6,7 @@ namespace BookParadise.Application.Service.Interface
 {
     public interface IBookService
     {
-        Task<ApiResponse<IEnumerable<BookResponseDto>>> GetAllBooksAsync();
+        Task<ApiResponse<PageResult<IEnumerable<BookResponseDto>>>> GetAllBooksAsync(int page, int perPage);
         Task<ApiResponse<BookResponseDto>> GetBookByIdAsync(string bookId);
         Task<ApiResponse<string>> UpdateBookStockAsync(string bookId, int newStockQuantity);
     }

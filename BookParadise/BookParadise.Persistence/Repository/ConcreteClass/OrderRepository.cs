@@ -5,14 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookParadise.Persistence.Repository.ConcreteClass
 {
-    public class OrderRepository : IOrderRepository
+    public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
         private readonly BookParadiseDb _dbContext;
 
-        public OrderRepository(BookParadiseDb dbContext)
-        {
-            _dbContext = dbContext;
-        }
+        public OrderRepository(BookParadiseDb dbContext) : base(dbContext) { }
+        
 
         public async Task<Order> PlaceOrderAsync(Order order)
         {

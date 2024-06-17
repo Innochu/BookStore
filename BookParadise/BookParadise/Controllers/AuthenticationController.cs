@@ -13,7 +13,9 @@ namespace BookParadise.Controllers
         private readonly IRabbitMQService _rabbitMQService;
         private readonly IConfiguration _configuration;
 
-        public AuthenticationController(IAuthenticationService authenticationService, IRabbitMQService rabbitMQService, IConfiguration configuration)
+        public AuthenticationController(IAuthenticationService authenticationService,
+                                        IRabbitMQService rabbitMQService, 
+                                        IConfiguration configuration)
         {
             _authenticationService = authenticationService;
             _rabbitMQService = rabbitMQService;

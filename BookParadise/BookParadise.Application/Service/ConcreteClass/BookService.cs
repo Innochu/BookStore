@@ -18,17 +18,13 @@ namespace BookParadise.Application.Service.ConcreteClass
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ApiResponse<IEnumerable<BookResponseDto>>> GetAllBooksAsync()
+        public async Task<ApiResponse<PageResult<IEnumerable<BookResponseDto>>>> GetAllBooksAsync(int page, int perPage)
         {
             try
             {
                 var allBooks = await _unitOfWork.BookRepo.GetAllBooksAsync();
+                var pagedBooks = await Pagination<Book>.GetPager(allBooks, perPage, page, b => b.Title);
 
-                // Check if any books retrieved (optional)
-                if (!allBooks.Any())
-                {
-                    return ApiResponse<IEnumerable<BookResponseDto>>.Success(new List<BookResponseDto>(), "No books found", 200);
-                }
 
                 var bookDtoList = allBooks.Select(book => new BookResponseDto
                 {
@@ -46,11 +42,20 @@ namespace BookParadise.Application.Service.ConcreteClass
                     UpdatedAt = book.UpdatedAt
                 }).ToList();
 
-                return ApiResponse<IEnumerable<BookResponseDto>>.Success(bookDtoList, "Books retrieved successfully", 200);
+                var pagedBookDto = new PageResult<IEnumerable<BookResponseDto>>
+                {
+                    Data = bookDtoList,
+                    TotalPageCount = pagedBooks.TotalPageCount,
+                    CurrentPage = pagedBooks.CurrentPage,
+                    PerPage = pagedBooks.PerPage,
+                    TotalCount = pagedBooks.TotalCount
+                };
+
+                return ApiResponse<PageResult<IEnumerable<BookResponseDto>>>.Success(pagedBookDto, "Books retrieved successfully", 200);
             }
             catch (Exception ex)
             {
-                return ApiResponse<IEnumerable<BookResponseDto>>.Failed(false, ex.Message, 500, new List<string> { ex.StackTrace });
+                return ApiResponse<PageResult<IEnumerable<BookResponseDto>>>.Failed(false, ex.Message, 500, new List<string> { ex.StackTrace });
             }
         }
 

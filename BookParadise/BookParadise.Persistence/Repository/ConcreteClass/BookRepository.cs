@@ -5,13 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookParadise.Persistence.Repository.ConcreteClass
 {
-    public class BookRepository : IBookRepository
+    public class BookRepository : GenericRepository<Book>, IBookRepository
     {
         private readonly BookParadiseDb _dbContext;
-        public BookRepository(BookParadiseDb dbContext)
-        {
-            _dbContext = dbContext;
-        }
+        public BookRepository(BookParadiseDb dbContext) : base(dbContext) { }
+     
         public async Task<List<Book>> GetAllBooksAsync()
         {
             return await _dbContext.Books.ToListAsync();
@@ -24,14 +22,21 @@ namespace BookParadise.Persistence.Repository.ConcreteClass
 
         public async Task UpdateStockAsync(string bookId, int quantity)
         {
-            var book = await _dbContext.Books.FirstOrDefaultAsync(b => b.Id == bookId);
-            if (book != null)
+            var book = await _dbContext.Books.FindAsync(bookId);
+
+            if (book == null)
             {
-                book.StockQuantity = quantity;
-                await _dbContext.SaveChangesAsync();
-            }
+                throw new Exception($"Book with ID '{bookId}' not found");
+            }   
+
+            
+            await _dbContext.SaveChangesAsync();
+
         }
+
+
     }
-
-
 }
+
+
+    
